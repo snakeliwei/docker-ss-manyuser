@@ -4,7 +4,8 @@ RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/reposito
     && apk add --update py-pip git swig openssl-dev gcc && rm -rf /var/cache/apk/* \
     && pip install cymysql m2crypto  \
     && mkdir -p /sserver \
-    && git clone -b manyuser https://github.com/mengskysama/shadowsocks.git /sserver \
+    && git clone -b manyuser https://github.com/mengskysama/shadowsocks.git /sserver 
+    
 WORKDIR /sserver
 # Configure container to run as an executable
 ENTRYPOINT ["python /sserver/shadowsocks/server.py"]
